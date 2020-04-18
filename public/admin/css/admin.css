@@ -1,0 +1,45 @@
+.sidebar-nav {
+    background-color: gainsboro;
+    font-size: 18px;
+    /* color: white; */
+}
+
+.sidebar-nav>ul>li a {
+    color: darkblue;
+}
+
+.navbar-header>.navbar-brand {
+    font-size: 30px;
+    color: black;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ccc;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 10px;
+}
+
+tr:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+footer {
+    padding: 20px;
+    background: #c5c7ff;
+    text-align: center;
+    font-weight: 5em;
+    font-size: 1.3em;
+    color: black;
+}
