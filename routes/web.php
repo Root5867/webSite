@@ -23,13 +23,16 @@ Route::prefix('admin')->group(function() {
     Route::get('login', 'AdminController@getLogin');
 	Route::post('login', 'AdminController@postLogin');
     Route::get('logout', 'AdminController@logOut');
-
     
     Route::middleware(['checklogin'])->group(function () {
         Route::get('/', 'AdminController@getIndex');
         Route::get('/category','CategoriesController@getCategories');
-        Route::get('/category/addCate','CategoriesController@postAddCate' );
+        Route::get('/category/addCate','CategoriesController@postAddCate');
+        Route::post('/category/addCate','CategoriesController@postAddCate');
+        Route::get('/category/editCate/{id}','CategoriesController@editCate');
+        Route::post('/category/editCate/{id}','CategoriesController@editCate');
         Route::get('/category/deletecate/{id}','CategoriesController@deleteCate');
+        Route::get('/category/search', 'CategoriesController@search');
     });
 
 });

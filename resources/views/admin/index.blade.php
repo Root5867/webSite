@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Khóa Học Lập Trình Laravel Framework 5.x Tại Khoa Phạm">
     <meta name="author" content="">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Admin</title>
     <base href="{{asset('')}}">
@@ -40,7 +40,7 @@
     <!-- DataTables Responsive CSS -->
     <link href="{{url('public/admin/bower_components/datatables-responsive/css/dataTables.responsive.css')}}" rel="stylesheet">
     <script src="{{url('public/admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+    <script src="{{ 'public/admin/js/sweetalert2.all.min.js' }}"></script>
     <!-- ckeditor & ckfinder -->
     <script src="{{asset('public/admin/ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('public/admin/ckeditor/ckfinder/ckfinder.js')}}"></script>

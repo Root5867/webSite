@@ -13,8 +13,8 @@
             <br>
             <label for="rote">Description: </label><br>
             <textarea class="form-control" name="description" id="description" rows="3"></textarea>
-            <label for="image">Image: </label>
-            <input type="file" name="image" id="image">
+            {{-- <label for="image">Image: </label>
+            <input type="file" name="image" id="image"> --}}
         </div>
         <form>
 </div>
@@ -38,7 +38,7 @@
 
         var cateName = $('#cateName').val();
         var description = $('#description').val();
-        var image = $('#image').val();
+        // var image = $('#image').val();
         
         // console.log(cateName);
         if($.trim(cateName)=='') {
@@ -50,12 +50,12 @@
            $.ajax({
               async: true,
               url: url,
-              type: 'GET',
+              type: 'POST',
               dataType: 'json',
               data: {
                 cateName: cateName,
                 description: description,
-                image: image,
+                // image: image,
               },
             })
             .done(function(res) {
@@ -64,14 +64,14 @@
                 Swal.fire({
                   type: 'error',
                   title: 'Tên danh mục đã có!',
-                  timer: 1500
+                  timer: 3000
                 })
               } else if(res==1) {
                 Swal.fire({
                   type: 'success',
                   title: 'Thêm mới thành công',
                   showConfirmButton: false,
-                  // timer: 1500
+                  timer: 3000
                 });
                 window.location.replace('admin/category');
                 setTimeout(function () {

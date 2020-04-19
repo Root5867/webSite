@@ -50,21 +50,19 @@ class Category extends Model
     }
 
 
-    public static function addCate($cateName,$description,$image) {
+    public static function addCate($cateName,$description) {
         self::insert([
             'cateName'=>$cateName,
             'description'=>$description,
-            'image'=>$image,
+            // 'image'=>$image,
             // 'status'=>1,
             'created_at'=>date('Y-m-d H:i:s')
         ]);
     }
 
-    // public static function addCate($cateName) {
-    //     self::insert([
-    //         'cateName'=>$cateName
-    //     ]);
-    // }
+    public static function getCateById($id) {
+       return self::where('id',$id)->first();
+    }
 
 
     public static function addCatego($cateName) {
@@ -74,15 +72,21 @@ class Category extends Model
         ]);
     }
 
-    public static function updateCate($id, $cateName, $description, $image) {
+    public static function updateCate($id, $cateName, $description, $status) {
         self::where('id', $id)
             ->update([
             'cateName'=>$cateName,
             'description'=>$description,
-            'image'=>$image,
+            'status'=>$status,
             'updated_at'=>date('Y-m-d H:i:s')
             ]);
     }
+
+
+    // public static function searchCate($cateName,$search){
+    //     return self::where( $cateName, 'LIKE', '%' . $search . '%')->get()
+    // }
+
 
     public static function deleteCate($id) {
         self::where('id', $id)->delete();
