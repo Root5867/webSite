@@ -35,7 +35,7 @@
                                 <!-- edit -->
                                 <a href data-id="{{$cate->id}}" class="icon-edit" data-toggle="modal" data-target="#addCate" data-id="{{$cate->id}}"><span class="btn btn-primary"> <i class="fa fa-pencil-square" aria-hidden="true"></i></span> </a>
                                 <!-- delete -->
-                                <a href="{{url('admin/deletecate/'.$cate->id)}}" class="icon-delete" onclick="return confirm('Bạn có muốn xóa không?');"><span class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                                <a href="{{url('/admin/category/deletecate/'.$cate->id)}}" class="icon-delete" onclick="return confirm('Bạn có muốn xóa không?');"><span class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
                             </td>
                         </tr>
                         <?php $stt++; ?> @endforeach
@@ -72,7 +72,6 @@
     });
 
     var url;
-    var id;
     $('.icon-add').click(function(event) {
         event.preventDefault();
         url = 'admin/category/addCate';

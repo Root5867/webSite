@@ -28,7 +28,8 @@ Route::prefix('admin')->group(function() {
     Route::middleware(['checklogin'])->group(function () {
         Route::get('/', 'AdminController@getIndex');
         Route::get('/category','CategoriesController@getCategories');
-        Route::get('/category/addCate','CategoriesController@addCategories' );
+        Route::get('/category/addCate','CategoriesController@postAddCate' );
+        Route::get('/category/deletecate/{id}','CategoriesController@deleteCate');
     });
 
 });

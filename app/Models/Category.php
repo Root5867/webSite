@@ -40,18 +40,31 @@ class Category extends Model
     }
 
 
+    //select cate by name
     public static function getCateByName($cateName) {
         return self::where('cateName', $cateName)->first();
     }
+
+    public static function getCateByNameDifId($id,$cateName) {
+        return self::where('cateName', $cateName)->where('id','!=',$id)->first();
+    }
+
 
     public static function addCate($cateName,$description,$image) {
         self::insert([
             'cateName'=>$cateName,
             'description'=>$description,
             'image'=>$image,
+            // 'status'=>1,
             'created_at'=>date('Y-m-d H:i:s')
         ]);
     }
+
+    // public static function addCate($cateName) {
+    //     self::insert([
+    //         'cateName'=>$cateName
+    //     ]);
+    // }
 
 
     public static function addCatego($cateName) {

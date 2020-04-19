@@ -17,8 +17,9 @@ class CategoriesController extends Controller
 
     //
     public function deleteCate($id) {
-    	$product = Product::getProjectByCate($id);
-    	if(count($product)==0){
+		$product = Product::getProductById($id);
+		// dd($product);
+    	if($product ==Null){
     		Category::deleteCate($id);
     		return redirect()->back();
     	}
@@ -29,24 +30,27 @@ class CategoriesController extends Controller
     }
 
 
-	public function addCategories(Request $request){
-		$cate = new Category();
+	public function postAddCate(Request $request) {
+
 		if($request->cateName){
+			$category = new Category;
 			$cateName = $request->input('cateName');
-			dd($cateName);
-			// $description= $request->input('description');
-			// $image = $request->input('image');
-			$check = $cate::getCateByName($cateName);
-			if($check==null){
-				$cate::addCatego($cateName);
+			$description= $request->input('description');
+			$image = $request->input('image');
+			//check Name category
+			$check = $category::getCateByName($cateName);
+			if($check==null) {
+				$category::addCate($cateName,$description,$image);
 				return json_encode('1');
-			}else{
+			}
+			else {
 				return json_encode('0');
 			}
 		}else{
-			return view('admin.Category.addCate');
+			return view('admin/Category/addCate');
 		}
 	}
+
     
 
 
