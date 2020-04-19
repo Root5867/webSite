@@ -50,26 +50,7 @@
                     <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Category<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                                <a href="{{url('admin/levels')}}"><i class="fa fa-list" aria-hidden="true"></i> List Level </a>
-                        </li>
-                        <li>
-                            <a href="{{url('admin/levels')}}"><i class="fa fa-align-justify" aria-hidden="true"></i> Level <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                {{-- @foreach ($levels as $level)
-                                    <li>
-                                    <a href="{{url('admin/level',$level->id)}}">{!!$level->name!!}</a>
-                                    </li>
-                                @endforeach --}}
-                            </ul>
-                        </li>
-                        {{-- <li>
-                            <a href="#">Add Category</a>
-                        </li> --}}
-                    </ul>
-                    <!-- /.nav-second-level -->
+                    <a href="{{ url('/admin/category') }}"><i class="fa fa-bar-chart-o fa-fw"></i>Category</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-cube fa-fw"></i> Word<span class="fa arrow"></span></a>

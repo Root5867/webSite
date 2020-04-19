@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Category;
 
 class Product extends Model
 {
     //
+     //
     /**
      * The table associated with the model.
      *
@@ -88,5 +88,4 @@ class Product extends Model
     public static function getAllProductByCate($category_id){
         return self::where('category_id', $category_id)->paginate(12);
     }
-
 }

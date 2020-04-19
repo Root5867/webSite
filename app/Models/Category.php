@@ -1,25 +1,26 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Product;
+
 class Category extends Model
 {
+    //
     //  
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'category';
+    protected $table = "categories" ;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['nameCate','description','image'];
+    protected $fillable = ['cateName','description','image'];
 
     /**
      * Indicates if the model should be timestamped.
@@ -28,15 +29,14 @@ class Category extends Model
      */
     public $timestamps = true;
 
-    public function product()
+    public function products()
     {
         # code...
         return $this->hasMany('App/Product', 'category_id', 'id');
     }
 
-
-    static public function getCategory(){
-        return self::select('*')->get();
+    public static function getCategories() {
+    	return self::select('*')->get(); 	
     }
 
 
@@ -49,6 +49,14 @@ class Category extends Model
             'cateName'=>$cateName,
             'description'=>$description,
             'image'=>$image,
+            'created_at'=>date('Y-m-d H:i:s')
+        ]);
+    }
+
+
+    public static function addCatego($cateName) {
+        self::insert([
+            'cateName'=>$cateName,
             'created_at'=>date('Y-m-d H:i:s')
         ]);
     }
@@ -66,6 +74,4 @@ class Category extends Model
     public static function deleteCate($id) {
         self::where('id', $id)->delete();
     }
-
-
 }
