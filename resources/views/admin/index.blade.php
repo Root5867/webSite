@@ -45,6 +45,10 @@
     <script src="{{asset('public/admin/ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('public/admin/ckeditor/ckfinder/ckfinder.js')}}"></script>
     <!-- ckeditor & ckfinder -->
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 </head>
 
 <body>

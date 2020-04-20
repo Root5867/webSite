@@ -25,6 +25,7 @@ Route::prefix('admin')->group(function() {
     Route::get('logout', 'AdminController@logOut');
     
     Route::middleware(['checklogin'])->group(function () {
+        //category
         Route::get('/', 'AdminController@getIndex');
         Route::get('/category','CategoriesController@getCategories');
         Route::get('/category/addCate','CategoriesController@postAddCate');
@@ -33,6 +34,11 @@ Route::prefix('admin')->group(function() {
         Route::post('/category/editCate/{id}','CategoriesController@editCate');
         Route::get('/category/deletecate/{id}','CategoriesController@deleteCate');
         Route::get('/category/search', 'CategoriesController@search');
+
+
+        //product
+        Route::get('/product','ProductController@getIndex');
+
     });
 
 });

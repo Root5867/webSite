@@ -4,54 +4,46 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Category
+                    <h1 class="page-header">prodgory
                         <small>List</small>
-                        <a href data-id="" class="icon-add" data-toggle="modal" data-target="#addCate"><span class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> AddCategory</span></a>
+                        <a href data-id="" class="icon-add" data-toggle="modal" data-target="#addprod"><span class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> Addprodgory</span></a>
                     </h1>
                 </div>
                 <!-- /.col-lg-12 -->
                 <div class="col-md-12">
-                    <div class="row">
-                        <label for="search">Search: </label>
-                        <input type="text" style="margin-bottom: 30px;border-radius: 10px;border: 2px solid #61b2b2;" id="search" name="search" placeholder="search ......">
-                        {{-- <div class="col-md-3">
-                            <div class="form-group">
-                              <input type="text" class="form-control" ></input>
-                            </div>
-                        </div> --}}
+                    <div class="form-group">
+                        <input type="text" class="form-controller" id="search" name="search"></input>
                     </div>
-                  
-                   
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr align="center">
                                 <th scope="col">STT</th>
+                                <th scope="col">Image</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Slug</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">unit_price</th>
+                                <th scope="col">promotion_price</th>
                                 <th scope="col">Created_at</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @if ($cates)
+                        @if ($prods)
                         <?php $stt = 1; ?> 
-                            @foreach ($cates as $cate)
+                            @foreach ($prods as $prod)
                                 <tr>
                                     <td scope="row">{{$stt}}</td>
-                                    <td>{{$cate->cateName}}</td>
-                                    <td>{{$cate->cateName}}</td>
-                                    <td>
-                                        @if($cate->status==1)
-                                        <span class="label label-success">{{'Hoạt động'}}</span> @elseif($cate->status==0)
-                                        <span class="label label-danger">{{'Không hoạt động'}}</span> @endif
+                                    <td align="center">
+                                        <img src="{{ url('public/admin/images/bg2.jpeg') }}" alt="" srcset="" width="50px" height="50px">
                                     </td>
-                                    <td>{{ $cate->created_at }}</td>
+                                    <td>{{$prod->proName}}</td>
+                                    <td>{{ $prod->unit_price }}</td>
+                                    <td>{{ $prod->promotion_price }}</td>
+                                    <td>{{ $prod->created_at }}</td>
                                     <td>
                                         <!-- edit -->
-                                        <a href data-id="{{$cate->id}}" class="icon-edit" data-toggle="modal" data-target="#addCate" data-id="{{$cate->id}}"><span class="btn btn-primary"> <i class="fa fa-pencil-square" aria-hidden="true"></i></span> </a>
+                                        <a href data-id="{{$prod->id}}" class="icon-edit" data-toggle="modal" data-target="#addprod" data-id="{{$prod->id}}"><span class="btn btn-primary"> <i class="fa fa-pencil-square" aria-hidden="true"></i></span> </a>
                                         <!-- delete -->
-                                        <a href="{{url('/admin/category/deletecate/'.$cate->id)}}" class="icon-delete" data-title="Delete Category?" ><span class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                                        <a href="{{url('/admin/prodgory/deleteprod/'.$prod->id)}}" class="icon-delete" data-title="Delete prodgory?" ><span class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
                                     </td>
                                 </tr>
                                 <?php $stt++; ?> 
@@ -61,9 +53,10 @@
                         <tfoot>
                             <tr align="center">
                                 <th scope="col">STT</th>
+                                <th scope="col">Image</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Slug</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">unit_price</th>
+                                <th scope="col">promotion_price</th>
                                 <th scope="col">Created_at</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -79,7 +72,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="addCate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addprod" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 
@@ -101,7 +94,7 @@
   
     $('.icon-add').click(function(event) {
         event.preventDefault();
-        url = 'admin/category/addCate';
+        url = 'admin/prodgory/addprod';
         $.ajax({
             url: url,
             type: "GET",
@@ -114,7 +107,7 @@
     $('.icon-edit').click(function(event) {
         event.preventDefault();
         id = $(this).data('id');
-        url = 'admin/category/editCate/';
+        url = 'admin/prodgory/editprod/';
         $.ajax({
             url: url + id,
             type: 'GET',
@@ -132,7 +125,7 @@
         $value = $(this).val();
         $.ajax({
             type: 'get',
-            url: '{{ URL::to('admin/category/search') }}',
+            url: '{{ URL::to('admin/prodgory/search') }}',
             data: {
                 'search': $value
             },
@@ -142,7 +135,7 @@
             $('.icon-edit').click(function(event) {
                 event.preventDefault();
                 id = $(this).data('id');
-                url = 'admin/category/editCate/';
+                url = 'admin/prodgory/editprod/';
                 $.ajax({
                     url: url + id,
                     type: 'GET',

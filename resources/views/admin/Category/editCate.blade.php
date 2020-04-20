@@ -100,18 +100,19 @@
                   }, 3000);
                 }
 
-            $('.icon-edit').click(function(event) {
-              event.preventDefault();
-              id = $(this).data('id');
-              url = 'editcate/';
-              $.ajax({
-                url: url + id,
-                type: 'GET',
-              })
-              .done(function(res) {
-                $('.modal-content').html(res);
-              })
-            });
+
+                $('.icon-edit').click(function(event) {
+                    event.preventDefault();
+                    id = $(this).data('id');
+                    url = 'admin/category/editCate/';
+                    $.ajax({
+                        url: url + id,
+                        type: 'GET',
+                    })
+                    .done(function(res) {
+                        $('.modal-content').html(res);
+                    })
+                });
           })
       }
     }); 
