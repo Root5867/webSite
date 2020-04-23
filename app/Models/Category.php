@@ -82,10 +82,11 @@ class Category extends Model
             ]);
     }
 
-
-    // public static function searchCate($cateName,$search){
-    //     return self::where( $cateName, 'LIKE', '%' . $search . '%')->get()
-    // }
+    
+    //get categories active
+    public static function getCateActive() {
+    	return self::where('status', 1)->get();
+    }
 
 
     public static function deleteCate($id) {

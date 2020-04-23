@@ -38,6 +38,9 @@ Route::prefix('admin')->group(function() {
 
         //product
         Route::get('/product','ProductController@getIndex');
+        Route::get('/product/addPro','ProductController@postAddPro');
+        Route::post('/product/addPro','ProductController@postAddPro');
+       
 
     });
 

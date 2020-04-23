@@ -4,9 +4,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">prodgory
+                    <h1 class="page-header">Products
                         <small>List</small>
-                        <a href data-id="" class="icon-add" data-toggle="modal" data-target="#addprod"><span class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> Addprodgory</span></a>
+                        <a href data-id="" class="icon-add" data-toggle="modal" data-target="#addprod"><span class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> Addproduct</span></a>
                     </h1>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -38,12 +38,12 @@
                                     <td>{{$prod->proName}}</td>
                                     <td>{{ $prod->unit_price }}</td>
                                     <td>{{ $prod->promotion_price }}</td>
-                                    <td>{{ $prod->created_at }}</td>
+                                    <td>{{ $prod->created_at->format('H:i:s d/m/Y') }}</td>
                                     <td>
                                         <!-- edit -->
                                         <a href data-id="{{$prod->id}}" class="icon-edit" data-toggle="modal" data-target="#addprod" data-id="{{$prod->id}}"><span class="btn btn-primary"> <i class="fa fa-pencil-square" aria-hidden="true"></i></span> </a>
                                         <!-- delete -->
-                                        <a href="{{url('/admin/prodgory/deleteprod/'.$prod->id)}}" class="icon-delete" data-title="Delete prodgory?" ><span class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                                        <a href="{{url('/admin/product/deleteprod/'.$prod->id)}}" class="icon-delete" data-title="Delete product?" ><span class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
                                     </td>
                                 </tr>
                                 <?php $stt++; ?> 
@@ -94,7 +94,7 @@
   
     $('.icon-add').click(function(event) {
         event.preventDefault();
-        url = 'admin/prodgory/addprod';
+        url = 'admin/product/addPro';
         $.ajax({
             url: url,
             type: "GET",
@@ -107,7 +107,7 @@
     $('.icon-edit').click(function(event) {
         event.preventDefault();
         id = $(this).data('id');
-        url = 'admin/prodgory/editprod/';
+        url = 'admin/product/editprod/';
         $.ajax({
             url: url + id,
             type: 'GET',
@@ -125,7 +125,7 @@
         $value = $(this).val();
         $.ajax({
             type: 'get',
-            url: '{{ URL::to('admin/prodgory/search') }}',
+            url: '{{ URL::to('admin/product/search') }}',
             data: {
                 'search': $value
             },
@@ -135,7 +135,7 @@
             $('.icon-edit').click(function(event) {
                 event.preventDefault();
                 id = $(this).data('id');
-                url = 'admin/prodgory/editprod/';
+                url = 'admin/product/editprod/';
                 $.ajax({
                     url: url + id,
                     type: 'GET',

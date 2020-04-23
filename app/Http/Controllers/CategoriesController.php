@@ -91,7 +91,7 @@ class CategoriesController extends Controller
 						<td>' . $category->cateName . '</td>
 						<td>' . $category->cateName . '</td>
 						<td>' . $category->status . '</td>
-						<td>' . $category->created_at . '</td>
+						<td>' . $category->created_at->format('H:i:s m/d/Y ') . '</td>
 						<td>
 						<a href data-id="'.$category->id.'" class="icon-edit" data-toggle="modal" data-target="#addCate" data-id="'.$category->id.'"><span class="btn btn-primary"> <i class="fa fa-pencil-square" aria-hidden="true"></i></span> </a>
 						<a href="http://localhost/webSite/admin/category/deletecate/'.$category->id.'" class="icon-delete"><span class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i></span></a>

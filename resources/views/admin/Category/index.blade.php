@@ -46,7 +46,7 @@
                                         <span class="label label-success">{{'Hoạt động'}}</span> @elseif($cate->status==0)
                                         <span class="label label-danger">{{'Không hoạt động'}}</span> @endif
                                     </td>
-                                    <td>{{ $cate->created_at }}</td>
+                                    <td>{{ $cate->created_at->format('H:i:s m/d/Y ') }}</td>
                                     <td>
                                         <!-- edit -->
                                         <a href data-id="{{$cate->id}}" class="icon-edit" data-toggle="modal" data-target="#addCate" data-id="{{$cate->id}}"><span class="btn btn-primary"> <i class="fa fa-pencil-square" aria-hidden="true"></i></span> </a>

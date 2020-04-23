@@ -53,7 +53,10 @@
                     <a href="{{ url('/admin/category') }}"><i class="fa fa-bar-chart-o fa-fw"></i>Category</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-cube fa-fw"></i> Word<span class="fa arrow"></span></a>
+                    <a href="{{ url('/admin/product') }}"><i class="fa fa-cube fa-fw"></i>Product</a>
+                </li>
+                <li>
+                    <a href="{{ url('/admin/product2') }}"><i class="fa fa-cube fa-fw"></i>User<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="#"> List Word <span class="fa arrow"></span></a>
