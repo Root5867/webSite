@@ -21,7 +21,7 @@ class Product extends Model
      *
      * @var array
      */
-    protected $fillable = ['proName','description','unit_price','promotion_price','image','unit','new'];
+    protected $fillable = ['proName','description','unit_price','promotion_price','ProductImage'];
     
     
     /**
@@ -43,6 +43,10 @@ class Product extends Model
     static public function getProductById($id){
         return self::where('id',$id)->first();
     }
+    //select product by name
+    public static function getProByName($proName) {
+        return self::where('proName', $proName)->first();
+    }
 
     static public function getProductByName($proName){
         return self::where('proName',$proName)->first();
@@ -52,16 +56,15 @@ class Product extends Model
         return self::where('id',$id)->delete();
     }
     
-    public static function AddProduct( $proName, $description, $category_id,$unit_price, $promotion_price, $image, $unit, $new) {
+    public static function AddProduct( $proName, $description, $category_id, $unit_price, $promotion_price, $ProductImage,$poster) {
     	self::insert([
     		'proName'=>$proName,
             'description'=>$description,
             'category_id'=>$category_id,
     		'unit_price'=>$unit_price,
     		'promotion_price'=>$promotion_price,
-    		'image'=>$image,
-    		'unit'=>$unit,
-    		'new'=>$new,
+            'ProductImage'=>$ProductImage,
+            'poster'=>$poster,
     		'created_at'=>date('Y-m-d H:i:s')
     	]);
     }

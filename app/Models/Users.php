@@ -40,4 +40,8 @@ class Users extends Model
         return self::where('id',$id)->delete();
     }
 
+    static public function findUserByUsername($username) {
+    	return self::where('username', $username)->first();
+    }
+
 }

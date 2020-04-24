@@ -32,7 +32,9 @@ class Admin extends Model
         return self::where('adminName',$adminName)->first();
     }
 
-
+    // static public function findUserByUsername($username) {
+    // 	return self::where('username', $username)->first();
+    // }
 
     
 }
