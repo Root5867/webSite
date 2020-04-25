@@ -25,6 +25,7 @@ Route::prefix('admin')->group(function() {
     Route::get('logout', 'AdminController@logOut');
     
     Route::middleware(['checklogin'])->group(function () {
+
         //category
         Route::get('/', 'AdminController@getIndex');
         Route::get('/category','CategoriesController@getCategories');
@@ -40,7 +41,11 @@ Route::prefix('admin')->group(function() {
         Route::get('/product','ProductController@getIndex');
         Route::get('/product/addPro','ProductController@postAddPro');
         Route::post('/product/addPro','ProductController@postAddPro')->name('product.postAddPro');
-       
+        Route::get('/product/editPro/{id}','ProductController@editPro');
+        Route::post('/product/editPro/{id}','ProductController@editPro');
+        Route::get('/product/deletePro/{id}','ProductController@deletePro');
+        Route::get('/product/search', 'ProductController@search');
+
 
     });
 

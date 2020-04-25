@@ -19,7 +19,7 @@ class CategoriesController extends Controller
     public function deleteCate($id) {
 		$product = Product::getProductById($id);
 		// dd($product);
-    	if($product ==Null){
+    	if($product == Null){
     		Category::deleteCate($id);
     		return redirect()->back();
     	}

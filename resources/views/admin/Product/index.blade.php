@@ -67,7 +67,7 @@
                                         <!-- edit -->
                                         <a href data-id="{{$prod->id}}" class="icon-edit" data-toggle="modal" data-target="#addprod" data-id="{{$prod->id}}"><span class="btn btn-primary"> <i class="fa fa-pencil-square" aria-hidden="true"></i></span> </a>
                                         <!-- delete -->
-                                        <a href="{{url('/admin/product/deleteprod/'.$prod->id)}}" class="icon-delete" data-title="Delete product?" ><span class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
+                                        <a href="{{url('/admin/product/deletePro/'.$prod->id)}}" class="icon-delete" data-title="Delete product?" ><span class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
                                     </td>
                                 </tr>
                                 <?php $stt++; ?> 
@@ -130,7 +130,7 @@
     $('.icon-edit').click(function(event) {
         event.preventDefault();
         id = $(this).data('id');
-        url = 'admin/product/editprod/';
+        url = 'admin/product/editPro/';
         $.ajax({
             url: url + id,
             type: 'GET',
@@ -139,10 +139,12 @@
             $('.modal-content').html(res);
         })
     });
+
     $('a.icon-delete').confirm({
         content: "Bạn có muốn xóa không?",
     });
  
+
     $('#search').on('keyup',function(){
         $value = $(this).val();
         $.ajax({
@@ -156,7 +158,7 @@
             $('.icon-edit').click(function(event) {
                 event.preventDefault();
                 id = $(this).data('id');
-                url = 'admin/product/editprod/';
+                url = 'admin/product/editPro/';
                 $.ajax({
                     url: url + id,
                     type: 'GET',

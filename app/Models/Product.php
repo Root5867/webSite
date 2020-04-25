@@ -52,7 +52,7 @@ class Product extends Model
         return self::where('proName',$proName)->first();
     }
 
-    static public function deletePro($id){
+    static public function deleteProduct($id){
         return self::where('id',$id)->delete();
     }
     
@@ -69,7 +69,7 @@ class Product extends Model
     	]);
     }
 
-    public static function updateProject($id, $proName, $description, $category_id,$unit_price, $promotion_price, $image, $unit, $new) {
+    public static function updateProduct($id, $proName, $description, $category_id, $unit_price, $promotion_price, $ProductImage, $poster) {
         self::where('id', $id)
             ->update([
             'proName'=>$proName,
@@ -77,15 +77,10 @@ class Product extends Model
             'category_id'=>$category_id,
             'unit_price'=>$unit_price,
             'promotion_price'=>$promotion_price,
-            'image'=>$image,
-            'unit'=>$unit,
-            'new'=>$new,
+            'ProductImage'=>$ProductImage,
+            'poster'=>$poster,
             'updated_at'=>date('Y-m-d H:i:s')
         ]);
-    }
-
-    public static function deleteProduct($id){
-        return self::where('id',$id)->delete();
     }
 
     public static function getAllProductByCate($category_id){
