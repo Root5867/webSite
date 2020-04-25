@@ -49,8 +49,8 @@ class ProductController extends Controller
                 return redirect()->back()->with('alertPro', $alertPro);
 			}
 			else {
-                $alertPro ="thêm mới không thành công!!!";
-                return redirect()->back()->with('alertPro', $alertPro);
+                $errorPro ="thêm mới không thành công!!!";
+                return redirect()->back()->with('errorPro', $errorPro);
 			}
         }
         else{

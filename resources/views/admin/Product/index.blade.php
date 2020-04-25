@@ -20,7 +20,17 @@
                                 content: 'Thêm mới thành công',
                             });
                         </script>
-                    </div>
+                    </div>  
+                    @elseif(session('errorPro'))
+                    <div class="alert alert-danger" style="margin-top: 10px;">
+                        {{session('errorPro')}}
+                        <script>
+                            $.alert({
+                                title: 'Alert!',
+                                content: 'Thêm mới không thành công',
+                            });
+                        </script>
+                    </div>  
                     @endif
                     <div class="form-group">
                         <input type="text" class="form-controller" id="search" name="search"></input>
@@ -159,8 +169,7 @@
        
     });
 
-
-    $('.alert').show(4000).delay(5000).hide()
+    $('.alert').delay(4000).fadeOut(500);
 </script>
 
 
