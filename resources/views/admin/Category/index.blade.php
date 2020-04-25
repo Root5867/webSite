@@ -12,16 +12,12 @@
                 <!-- /.col-lg-12 -->
                 <div class="col-md-12">
                     <div class="row">
-                        <label for="search">Search: </label>
-                        <input type="text" style="margin-bottom: 30px;border-radius: 10px;border: 2px solid #61b2b2;" id="search" name="search" placeholder="search ......">
-                        {{-- <div class="col-md-3">
-                            <div class="form-group">
-                              <input type="text" class="form-control" ></input>
-                            </div>
-                        </div> --}}
+                        <div id="searchDiv">
+                            <label for="search">Search: </label>
+                            <input type="text"  id="search" name="search" placeholder="tìm kiếm theo danh mục ......">
+                        </div>
                     </div>
                   
-                   
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr align="center">

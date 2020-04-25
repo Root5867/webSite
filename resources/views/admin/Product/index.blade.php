@@ -54,9 +54,9 @@
                                 <tr>
                                     <td scope="row">{{$stt}}</td>
                                     <td align="center">
-                                        <img src="{{ url('public/admin/images/bg2.jpeg') }}" alt="" srcset="" width="50px" height="50px">
+                                        <img src="{{ url('public/admin/images/products/'.$prod->ProductImage) }}" alt="" srcset="" width="50px" height="50px">
                                     </td>
-                                    <td>{{$prod->proName}}</td>
+                                    <td>{{ $prod->proName}}</td>
                                     <td>{{ $prod->unit_price }}</td>
                                     <td>{{ $prod->promotion_price }}</td>
                                     <td>{{ $prod->created_at->format('H:i:s d/m/Y') }}</td>
