@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Admin;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -21,7 +22,6 @@ class ProductController extends Controller
 
         if($request->proName){
             // 
-
             $admin = new Admin();
             $product = new Product();
 
@@ -45,10 +45,12 @@ class ProductController extends Controller
             $check = $product::getProByName($proName);
             if($check==null) {
 				$product::AddProduct($proName, $description, $category_id,$unit_price, $promotion_price, $ProductImageName,$posterId);
-				return json_encode('1');
+                $alertPro ="thêm mới thành công!!!";
+                return redirect()->back()->with('alertPro', $alertPro);
 			}
 			else {
-				return json_encode('0');
+                $alertPro ="thêm mới không thành công!!!";
+                return redirect()->back()->with('alertPro', $alertPro);
 			}
         }
         else{

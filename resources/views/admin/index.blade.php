@@ -45,37 +45,47 @@
     <script src="{{asset('public/admin/ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('public/admin/ckeditor/ckfinder/ckfinder.js')}}"></script>
     <!-- ckeditor & ckfinder -->
+    <link rel="icon" href="{{ url( 'public/admin/images/CTTech3.png') }} ">
 
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <link rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css ">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js "></script>
+    <meta property="og:title " content="WebSite Ban hang " />
+    <meta property="og:type " content="congthanh - Design " />
+    <meta property="og:image " content="{{ url( 'public/admin/images/CTTech3.png') }} " />
+    <meta property="fb:app_id " content="1430065787143715 " />
+    <meta property="fb:admins " content="100040971591106 " />
+    <script>
+        window.addEventListener("load ", function(event) {
+            lazyload();
+        });
+    </script>
 </head>
 
 <body>
-    <div id="wrapper">
-        {{-- @include('') --}} @include("admin.header")
-        <div class="rev-slider">
+    <div id="wrapper ">
+        {{-- @include('') --}} @include("admin.header ")
+        <div class="rev-slider ">
             @yield('content')
         </div>
         @include('admin.footer')
     </div>
     <!-- /#wrapper -->
     <!-- jQuery -->
-    <script src="{{url('public/admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{url( 'public/admin/bower_components/jquery/dist/jquery.min.js')}} "></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{url('public/admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{url( 'public/admin/bower_components/bootstrap/dist/js/bootstrap.min.js')}} "></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="{{url('public/admin/bower_components/metisMenu/dist/metisMenu.min.js')}}"></script>
+    <script src="{{url( 'public/admin/bower_components/metisMenu/dist/metisMenu.min.js')}} "></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="{{url('public/admin/dist/js/sb-admin-2.js')}}"></script>
+    <script src="{{url( 'public/admin/dist/js/sb-admin-2.js')}} "></script>
 
     <!-- DataTables JavaScript -->
-    <script src="{{url('public/admin/bower_components/datatables/media/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{url('public/admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{url( 'public/admin/bower_components/datatables/media/js/jquery.dataTables.min.js')}} "></script>
+    <script src="{{url( 'public/admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js')}} "></script>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js "></script>
 </body>
 
 </html>

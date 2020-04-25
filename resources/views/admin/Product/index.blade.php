@@ -11,6 +11,17 @@
                 </div>
                 <!-- /.col-lg-12 -->
                 <div class="col-md-12">
+                    @if(session('alertPro'))
+                    <div class="alert alert-danger" style="margin-top: 10px;">
+                        {{session('alertPro')}}
+                        <script>
+                            $.alert({
+                                title: 'Alert!',
+                                content: 'Thêm mới thành công',
+                            });
+                        </script>
+                    </div>
+                    @endif
                     <div class="form-group">
                         <input type="text" class="form-controller" id="search" name="search"></input>
                     </div>
@@ -90,7 +101,6 @@
             }
         });
     });
-
   
     $('.icon-add').click(function(event) {
         event.preventDefault();
@@ -119,7 +129,6 @@
     $('a.icon-delete').confirm({
         content: "Bạn có muốn xóa không?",
     });
-
  
     $('#search').on('keyup',function(){
         $value = $(this).val();
@@ -131,7 +140,6 @@
             },
         }).done(function(data){
             $('tbody').html(data);
-
             $('.icon-edit').click(function(event) {
                 event.preventDefault();
                 id = $(this).data('id');
@@ -144,16 +152,15 @@
                     $('.modal-content').html(res);
                 })
             });
-
             $('a.icon-delete').confirm({
                 content: "Bạn có muốn xóa không?",
             });
-
-
         });
-
        
     });
+
+
+    $('.alert').show(4000).delay(5000).hide()
 </script>
 
 
