@@ -39,8 +39,8 @@
                                     <td>{{$cate->cateName}}</td>
                                     <td>
                                         @if($cate->status==1)
-                                        <span class="label label-success">{{'Hoạt động'}}</span> @elseif($cate->status==0)
-                                        <span class="label label-danger">{{'Không hoạt động'}}</span> @endif
+                                        <span class="label label-success">{{'active'}}</span> @elseif($cate->status==0)
+                                        <span class="label label-danger">{{'inactive'}}</span> @endif
                                     </td>
                                     <td>{{ $cate->created_at->format('H:i:s m/d/Y ') }}</td>
                                     <td>

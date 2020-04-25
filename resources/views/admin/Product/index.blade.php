@@ -32,8 +32,11 @@
                         </script>
                     </div>  
                     @endif
-                    <div class="form-group">
-                        <input type="text" class="form-controller" id="search" name="search"></input>
+                    <div class="row">
+                        <div id="searchDiv">
+                            <label for="search">Search: </label>
+                            <input type="text"  id="search" name="search" placeholder="tìm kiếm theo danh mục ......">
+                        </div>
                     </div>
                     <table class="table table-bordered table-hover">
                         <thead>
