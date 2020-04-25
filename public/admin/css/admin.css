@@ -51,7 +51,7 @@ footer {
     height: 50px;
     width: 500px;
     vertical-align: top;
-    text-align: right;
+    /* text-align: right; */
     /* position: absolute; */
     top: -36px;
     right: 10px;
