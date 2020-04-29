@@ -60,6 +60,55 @@ class ProductController extends Controller
         }
     }
 
+    public function getEditPro($id){
+        $category = new Category();
+        $cates = $category::getCategories();
+        $product = new Product();
+        $prod = $product->getProductById($id);
+        return view('admin/Product/editPro', compact('prod','cates'));
+    }
+
+    public function postEditPro(Request $request){
+        $admin = new Admin();
+        $product = new Product();
+
+        $category_id = $request->input('category_id');
+        $proName = trim($request->input('proName'));
+        $description = $request->input('description');
+        $unit_price = $request->input('unit_price');
+        $promotion_price =  $request->input('promotion_price');
+        $ProductImage = $request->file('ProductImage');
+
+        //feature image
+        if($ProductImage!=null) {
+            $ProductImageName = time().'_'.$ProductImage->getClientOriginalName();
+            $ProductImage->move('public/admin/images/products',$ProductImageName);
+
+            if(file_exists('public/admin/images/products/'.$request->input('ProductImage'))) {
+                unlink('public/admin/images/products/'.$request->input('ProductImage'));
+            }
+        }
+        else {
+            $ProductImageName = $request->input('ProductImage');
+        }
+
+        // put by admin_id
+        $poster = $admin::findAdminByName(session('UserAdmin'));
+        $posterId = $poster->id;
+                
+        //check name pro
+        $check = $product::getProByName($proName);
+        if($check==null) {
+            $product::updateProduct($id, $proName, $description, $category_id, $unit_price, $promotion_price, $ProductImageName,$posterId);
+            $alertPro ="Cập nhật thành công!!!";
+            return redirect('admin/product')->with('alertPro', $alertPro);
+        }
+        else {
+            $errorPro ="Cập nhật không thành công!!!";
+            return redirect('admin/product')->with('errorPro', $errorPro);
+        }
+    }
+
 
     public function editPro($id,Request $request){
 

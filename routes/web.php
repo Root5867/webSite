@@ -43,6 +43,10 @@ Route::prefix('admin')->group(function() {
         Route::post('/product/addPro','ProductController@postAddPro')->name('product.postAddPro');
         Route::get('/product/editPro/{id}','ProductController@editPro');
         Route::post('/product/editPro/{id}','ProductController@editPro');
+
+        Route::get('/product/editProd/{id}','ProductController@getEditPro');
+        Route::post('/product/editProd/{id}','ProductController@postEditPro');
+
         Route::get('/product/deletePro/{id}','ProductController@deletePro');
         Route::get('/product/search', 'ProductController@search');
 
