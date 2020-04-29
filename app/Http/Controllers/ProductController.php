@@ -65,10 +65,10 @@ class ProductController extends Controller
         $cates = $category::getCategories();
         $product = new Product();
         $prod = $product->getProductById($id);
-        return view('admin/Product/editPro', compact('prod','cates'));
+        return view('admin/Product/edit', compact('prod','cates'));
     }
 
-    public function postEditPro(Request $request){
+    public function postEditPro($id,Request $request){
         $admin = new Admin();
         $product = new Product();
 
