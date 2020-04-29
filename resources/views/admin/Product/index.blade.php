@@ -65,6 +65,7 @@
                                     <td>{{ $prod->created_at->format('H:i:s d/m/Y') }}</td>
                                     <td>
                                         <!-- edit -->
+                                        <a href="{{url('admin/product/editProd/'.$prod->id)}}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                                         <a href data-id="{{$prod->id}}" class="icon-edit" data-toggle="modal" data-target="#addprod" data-id="{{$prod->id}}"><span class="btn btn-primary"> <i class="fa fa-pencil-square" aria-hidden="true"></i></span> </a>
                                         <!-- delete -->
                                         <a href="{{url('/admin/product/deletePro/'.$prod->id)}}" class="icon-delete" data-title="Delete product?" ><span class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i></span></a>
